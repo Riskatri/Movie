@@ -7,7 +7,7 @@ import Login from "../src/components/login";
 import Movie from "../src/components/movie";
 import Home from "../src/components/layout/home";
 const token = JSON.parse(sessionStorage.getItem("persisted_state_hook:token"));
-const App = props => {
+const App = (props) => {
   return (
     <Router>
       <Switch>
