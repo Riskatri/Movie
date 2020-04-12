@@ -11,13 +11,14 @@ import {
 } from "reactstrap";
 
 function Navigation() {
-  const token = JSON.parse(
-    sessionStorage.getItem("persisted_state_hook:token")
-  );
+  // const token = JSON.parse(
+  //   sessionStorage.getItem("persisted_state_hook:token")
+  // );
   function logout() {
-    sessionStorage.setItem("persisted_state_hook:token", "");
-    sessionStorage.clear();
+    // sessionStorage.setItem("persisted_state_hook:token", "");
+    localStorage.clear();
   }
+  const token = localStorage.getItem("jwtToken");
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
