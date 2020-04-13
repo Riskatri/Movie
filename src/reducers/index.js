@@ -9,13 +9,15 @@
 // });
 
 import { combineReducers } from "redux";
-
-import { registration } from "./registration.reducers";
+import facereducers from "./face.reducers";
+import { registration, login } from "./registration.reducers";
 import { alert } from "./alert.reducers";
 
 const rootReducer = combineReducers({
   registration,
   alert,
+  facereducers,
+  login,
 });
 
 export default rootReducer;

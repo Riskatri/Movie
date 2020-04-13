@@ -9,6 +9,7 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import facedetection from "../facedetection";
 
 function Navigation() {
   // const token = JSON.parse(
@@ -55,6 +56,11 @@ function Navigation() {
             <NavItem>
               <NavLink to="/movies" tag={RRNavLink} className="text-light">
                 list Movie
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/face" tag={RRNavLink} className="text-light">
+                face
               </NavLink>
             </NavItem>
             <NavItem>

@@ -12,3 +12,16 @@ export function registration(state = {}, action) {
       return state;
   }
 }
+
+export function login(state = {}, action) {
+  switch (action.type) {
+    case userConstants.LOGIN_REQUEST:
+      return { isLogin: true };
+    case userConstants.LOGIN_SUCCESS:
+      return {};
+    case userConstants.LOGIN_FAILURE:
+      return {};
+    default:
+      return state;
+  }
+}
