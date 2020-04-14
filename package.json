@@ -11,6 +11,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "bootstrap": "^4.4.1",
+    "component-ui-web-teravin": "git+https://refikanissa2@bitbucket.org/refikanissa2/shared-component-ui-web.git#nowebpack",
     "eslint": "^6.8.0",
     "history": "^4.10.1",
     "moment": "^2.24.0",
@@ -50,5 +51,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "path": "^0.12.7",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }

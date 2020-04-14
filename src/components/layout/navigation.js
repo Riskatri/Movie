@@ -9,7 +9,7 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
-import facedetection from "../facedetection";
+// import facedetection from "../facedetection";
 
 function Navigation() {
   // const token = JSON.parse(

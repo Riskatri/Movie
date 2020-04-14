@@ -54,7 +54,7 @@ class Login extends React.Component {
     }
     return (
       <div className=" container row-5 ">
-        <div className="container col-5 ">
+        <div className="container col-5 card-body">
           <h3>LOGIN</h3>
           <div className="card-body">
             <form onSubmit={this.handlerSubmit}>

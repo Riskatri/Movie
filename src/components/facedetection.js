@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Webcam from "react-webcam";
-// import MediaQuery from "react-responsive";
 
 // import { faceActions } from "../actions";
 // import { connect } from "react-redux";
@@ -25,11 +24,11 @@ class Facedetec extends Component {
     // this.props.facedetection();
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const url = "http://localhost:4001/users";
-    const res = await fetch(url);
+    const res = fetch(url);
 
-    const data = await res.json();
+    const data = res.json();
     console.log(data);
     this.setState({ data: data.users });
   }
@@ -38,7 +37,7 @@ class Facedetec extends Component {
     if (this.state.screenshot === null) {
       return (
         <div>
-          <h1 className="text-center">Face detection</h1>
+          <h1 className="judul">Face detection</h1>
           <Webcam
             audio={false}
             ref={(node) => (this.webcam = node)}
@@ -63,7 +62,9 @@ class Facedetec extends Component {
     } else {
       return (
         <div className="Face">
-          {this.state.screenshot ? <img src={this.state.screenshot} /> : null}
+          {this.state.screenshot ? (
+            <img src={this.state.screenshot} alt="screenshot" />
+          ) : null}
           {this.state.data.map((users) => (
             <h1 key={users.id}>{users.name}</h1>
           ))}
