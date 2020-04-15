@@ -2,6 +2,8 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { userActions } from "../actions";
+import "../css/facedetection.css";
+import { Input } from "component-ui-web-teravin";
 
 class Login extends React.Component {
   constructor(props) {
@@ -53,13 +55,13 @@ class Login extends React.Component {
       return <Redirect to="/movies" />;
     }
     return (
-      <div className=" container row-5 ">
-        <div className="container col-5 card-body">
+      <div className="  row-5 ">
+        <div className="col-5 ">
           <h3>LOGIN</h3>
           <div className="card-body">
             <form onSubmit={this.handlerSubmit}>
               <div class="form-group">
-                <input
+                <Input.Login
                   value={user.username}
                   type="text"
                   name="username"
@@ -73,7 +75,7 @@ class Login extends React.Component {
               </div>
 
               <div class="form-group">
-                <input
+                <Input.Login
                   value={user.password}
                   type="password"
                   name="password"
@@ -86,7 +88,7 @@ class Login extends React.Component {
                 )}
               </div>
 
-              <button type="submit" className="btn btn-dark">
+              <button type="submit" className="btn btn-primary">
                 LOGIN
               </button>
             </form>

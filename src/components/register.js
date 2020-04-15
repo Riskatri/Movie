@@ -33,7 +33,7 @@ class Register extends Component {
     });
   }
 
-  handleChange = (e) => {
+  handleChange(e) {
     const target = e.target;
     const value = target.value;
     const name = target.name;
@@ -46,7 +46,7 @@ class Register extends Component {
         [name]: value,
       },
     });
-  };
+  }
 
   render() {
     const { user } = this.state;

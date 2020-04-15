@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import "./css/facedetection.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Main from "../src/components/layout/main";
 import Register from "../src/components/register";

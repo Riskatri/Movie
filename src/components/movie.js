@@ -28,9 +28,9 @@ class Movies extends Component {
     this.setState({ data: results });
   }
 
-  onchange = (e) => {
+  onchange(e) {
     this.setState({ res: e.target.value });
-  };
+  }
 
   render() {
     return (

@@ -24,11 +24,11 @@ class Facedetec extends Component {
     // this.props.facedetection();
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const url = "http://localhost:4001/users";
-    const res = fetch(url);
+    const res = await fetch(url);
 
-    const data = res.json();
+    const data = await res.json();
     console.log(data);
     this.setState({ data: data.users });
   }
@@ -83,3 +83,14 @@ export default Facedetec;
 //   facedetection: faceActions.facedetection,
 // };
 // export default connect(mapStateToPrps, { actionCreator })(Facedetec);
+
+// async function getMedia(contrains) {
+//   let stream = null;
+
+//   try {
+//     stream = await navigator.mediaDevices.getUserMedia(contrains);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+// export default getMedia;
