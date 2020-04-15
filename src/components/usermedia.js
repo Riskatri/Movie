@@ -9,4 +9,9 @@ export default class userMedia extends React.Component {
     };
     this.handleClick.bind(this);
   }
+
+  // getUserMedia(){
+  //  const stream = null,
+
+  // }
 }
