@@ -64,6 +64,11 @@ function Navigation() {
               </NavLink>
             </NavItem>
             <NavItem>
+              <NavLink to="/media" tag={RRNavLink} className="text-light">
+                take a photo
+              </NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink
                 onClick={logout}
                 to="/login"

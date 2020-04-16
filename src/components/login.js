@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { userActions } from "../actions";
 import "../css/facedetection.css";
-import { Input } from "component-ui-web-teravin";
+// import { Input } from "component-ui-web-teravin";
 
 class Login extends React.Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class Login extends React.Component {
           <div className="card-body">
             <form onSubmit={this.handlerSubmit}>
               <div class="form-group">
-                <Input.Login
+                <input
                   value={user.username}
                   type="text"
                   name="username"
@@ -75,7 +75,7 @@ class Login extends React.Component {
               </div>
 
               <div class="form-group">
-                <Input.Login
+                <input
                   value={user.password}
                   type="password"
                   name="password"

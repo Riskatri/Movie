@@ -10,7 +10,7 @@ function register(user) {
     body: JSON.stringify(user),
   };
 
-  return fetch(`http://localhost:4001/signup`, requestOptions);
+  return fetch(`http://localhost:3000/signup`, requestOptions);
 }
 
 export const faceService = {
@@ -23,7 +23,7 @@ function facedetection() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringfy(),
   };
-  return fetch("http://localhost:4001/users", getUser);
+  return fetch("http://localhost:3000/users", getUser);
 }
 
 function login(user) {
@@ -33,5 +33,5 @@ function login(user) {
     body: JSON.stringify(user),
   };
 
-  return fetch(`http://localhost:4001/login`, requestOptions);
+  return fetch(`http://localhost:3000/login`, requestOptions);
 }

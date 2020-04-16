@@ -8,6 +8,7 @@ import Login from "../src/components/login";
 import Movie from "../src/components/movie";
 import Home from "../src/components/layout/home";
 import Facedetection from "../src/components/facedetection";
+import GetUserMedia from "../src/components/usermedia"
 
 // const token = JSON.parse(sessionStorage.getItem("persisted_state_hook:token"));
 const token = localStorage.getItem("jwtToken");
@@ -32,6 +33,7 @@ const App = (props) => {
                     {/* <Route exact path="/register" component={Register} /> */}
                     <Route path="/movies" component={Movie} />
                     <Route path="/face" component={Facedetection} />
+                    <Route path="/media" component={GetUserMedia} />
                   </Switch>
                 </>
               );
