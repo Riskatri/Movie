@@ -4,47 +4,62 @@ export default class userMedia extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cameraStream: "",
-      screenshot: null,
+      capture: "",
+      snapsot: "",
+      canvas: null,
     };
- 
+    this.startStream = this.startStream.bind(this);
   }
 
-  componentDidMount() {
-   navigator.mediaDevices.getUserMedia({video: true, audio:false})
-      .then(this.handleVideo)
-     
+  startStream() {
+    navigator.mediaDevices
+      .getUserMedia({ audio: false, video: { width: 1280, height: 720 } })
+      .then(function (stream) {
+        var video = document.querySelector("video");
+        video.srcObject = stream;
+        video.onloadedmetadata = function () {
+          video.play();
+        };
+      })
+      .catch((err) => alert("error"));
   }
-  handleVideo  (stream)  {
-    this.setState({
-      cameraStream: window.URL.createObjectURL(stream)
-    })
-  }
-  // videoPlaye() {
-  //   document.getElementById("video-player");
-  // }
 
-  // videoPlayerSrcObject(stream) {
-  //   this.videoPlaye.srcObject = stream;
-  // }
-  // videoPlayerWithSrc(stream) {
-  //   this.videoPlaye.src = window.URL.createObjectURL(stream);
-  // }
-  startcapture(displayMediaOptions) {
-    // let capture = null 
-  const screenshot = navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
-    this.setState({
-   screenshot
-    })
-    
-  
-}
+  captureSnapshot() {
+    const stream = document.getElementById("stream");
+    const capture = document.getElementById("capture");
+    const snapshot = document.getElementById("snapshot");
+    const context = capture.getContext("2d");
+    const img = new Image();
+
+    context.drawImage(stream, 0, 0, capture.width, capture.height);
+    img.src = capture.toDataURL("image/png");
+    img.width = 240;
+    snapshot.innerHTML = "";
+    snapshot.appendChild(img);
+    try {
+      localStorage.setItem("photo", img.src);
+    } catch (e) {
+      console.log("Storage failed: " + e);
+    }
+  }
+
   render() {
     return (
-      <div> 
-        <button onClick={this.handleVideo}> Get Photos</button>
-
-     </div>
-   )
- }
+      <div className="container">
+        <button onClick={this.startStream} className="btn bg-primary">
+          Start Streaming
+        </button>
+        <span>
+          <button onClick={this.captureSnapshot} className="btn bg-primary">
+            Capture Image
+          </button>
+        </span>
+        <div class="Face">
+          <video id="stream" width="250" height="250"></video>
+          <canvas id="capture" width="250" height="250" />
+          <div id="snapshot"></div>
+        </div>
+      </div>
+    );
+  }
 }

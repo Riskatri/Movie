@@ -37,16 +37,18 @@ function register(user) {
   }
 }
 
-function login(user) {
+function login(form) {
   return (dispatch) => {
-    dispatch(request(user));
+    dispatch(request(form));
 
-    userService.login(user).then(
-      (user) => {
+    userService.login(form).then(
+      (form) => {
         dispatch(success());
         // history.push("/login");
-        const token = user.formData.accessToken;
+        const token = form.formData.accessToken;
+        const id = form.formData.id;
         localStorage.setItem("jwtToken", token);
+        localStorage.setItem("userId", id);
         alert("login success");
         window.location.reload("/movies");
       },
@@ -57,11 +59,11 @@ function login(user) {
     );
   };
 
-  function request(user) {
-    return { type: userConstants.LOGIN_REQUEST, user };
+  function request(form) {
+    return { type: userConstants.LOGIN_REQUEST, form };
   }
-  function success(user) {
-    return { type: userConstants.LOGIN_SUCCESS, user };
+  function success(form) {
+    return { type: userConstants.LOGIN_SUCCESS, form };
   }
   function failure(error) {
     return { type: userConstants.LOGIN_FAILURE, error };

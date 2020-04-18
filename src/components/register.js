@@ -124,8 +124,8 @@ class Register extends Component {
   }
 }
 function mapState(state) {
-  const { registering } = state.registration;
-  return { registering };
+  const { register } = state.registration;
+  return { register };
 }
 
 const actionCreators = {

@@ -26,11 +26,11 @@ function facedetection() {
   return fetch("http://localhost:3000/users", getUser);
 }
 
-function login(user) {
+function login(form) {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
+    body: JSON.stringify(form),
   };
 
   return fetch(`http://localhost:3000/login`, requestOptions);

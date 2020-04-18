@@ -21,11 +21,17 @@ class Facedetec extends Component {
     //   this.props.facedetection();
     // }
     this.setState({ screenshot });
-    // this.props.facedetection();
+    try {
+      localStorage.setItem("photo", screenshot);
+    } catch (e) {
+      console.log("cannot save to storage: " + e);
+    }
   }
+  // this.props.facedetection();
 
   async componentDidMount() {
-    const url = "http://localhost:4001/users";
+    const id = localStorage.getItem("userId");
+    const url = `http://localhost:3000/users/${id}`;
     const res = await fetch(url);
 
     const data = await res.json();
